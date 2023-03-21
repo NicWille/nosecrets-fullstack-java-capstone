@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>NO SECRETS</title>
+  <meta charset="utf-8" />
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link type="text/css" th:href="@{/css/style.css}" rel="stylesheet"/>
+<link type="text/css" th:href="@{/css/last.css}" rel="stylesheet"/>
+<link type="text/css" th:href="@{/css/table.css}" rel="stylesheet"/>
+</head>
+
+<body>
+  <header class="navbar sidebar-bg">
+    <div class="navbar-left d-flex justify-content-between align-items-center">
+        <img class="mb-4 mt-4" th:src="@{/img/woman.png}" alt="picture here" width="50" height="50">
+        <h1 class="h3 mb-3 font-weight-normal"><sup><u>no</u></sup>SECRETS</h1>
+        <img class="mb-4 mt-4" th:src="@{/img/man.png}" alt="picture here" width="50" height="50">
+    </div>
+    <div class="navbar-right">
+      <ul class="nav-menu d-flex justify-content-around">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{register}">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{login}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{secret}">Secret</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Username</th>
+        <th scope="col">Secret</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each='user: ${users}'>
+        <th scope="row" th:text='${user.id}'></th>
+        <td th:text='${user.firstName}'>place holder</td>
+        <td th:text='${user.lastName}'>ph</td>
+        <td th:text='${user.userName}'>ph</td>
+        <td th:text='${user.secret}'></td>
+        <td> 
+          <a th:href="@{/user/deleteUser/} + ${user.id}">
+            <button type="button" class="btn btn-sm">Delete</button>
+
+
+          </a>
+          <a th:href="@{/user/showFormForUpdate/} + ${user.id}">
+            <!-- <form th:action="@{/mycontroller/} + ${type}"> -->
+
+            <button 
+            class="btn btn-sm btn-highlight-sw" type="button">
+            Update
+            </button>
+          </a>
+          
+        </td>
+      </tr>
+<!-- -------------------------------------------------------------------------- -->
+      <!-- loop over and print our customers
+      <c:forEach var="tempCustomer" items="${customers}">
+      construct an "update" link with customer id -->
+      <!-- <c:url var="updateLink" value="/customer/showFormForUpdate">
+      <c:param name="customerId" value="${tempCustomer.id}" />
+      </c:url>
+
+      <c:url var="deleteLink" value="/customer/deleteCustomer">
+      <c:param name="command" value="DELETE" />
+      <c:param name="customerId" value="${tempCustomer.id}" />
+      </c:url>				
+      <tr>
+      <td> ${tempCustomer.firstName} </td>
+      <td> ${tempCustomer.lastName} </td>
+      <td> ${tempCustomer.email} </td>
+      <td>
+
+      <a href="${updateLink}">Update</a>
+      <a href="${deleteLink}"
+      onclick="if (!(confirm('Are you sure you want to delete this Coaches?'))) return false">
+      Delete</a>
+      </td>
+      </tr>
+      </c:forEach>  -->
+      <!-- ------------------------------------------------------------- -->
+
+
+      <!-- <tr>
+        <th scope="row">1</th>
+        <td>Bruce</td>
+        <td>Bogtrotter</td>
+        <td>@cake-lover999</td>
+        <td>I'm developing type-II diabetes</td>
+        <td> 
+          <button type="button" class="btn btn-sm">Delete</button>
+          <button 
+            onclick="window.location.href='secret.html'" 
+            class="btn btn-sm btn-highlight-sw" type="button">
+            Update
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Agatha</td>
+        <td>Trunchbull</td>
+        <td>@shotPut-QUEEN</td>
+        <td>I'm mad at myself for forgetting how it feels to be young</td>
+        <td>
+          <button type="button" class="btn btn-sm">Delete</button>
+          <button 
+            onclick="window.location.href='secret.html'" 
+            class="btn btn-sm btn-highlight-sw" type="button">
+            Update
+          </button>
+
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Matilda</td>
+        <td>Wormwood</td>
+        <td>@inner._.Stoic</td>
+        <td>i never liked reading... i was just bored :)</td>
+        <td>
+          <button type="button" class="btn btn-sm">Delete</button>
+          <button 
+            onclick="window.location.href='secret.html'" 
+            class="btn btn-sm btn-highlight-sw" type="button">
+            Update
+          </button>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+
+
+  <footer class="text-center">
+    <p>&copy; Nic Wille <span id="year"></span></p>
+  </footer>
+  <script>
+    var yearSpan = document.getElementById('year');
+    var currentYear = new Date().getFullYear();
+    yearSpan.textContent = currentYear;
+  </script>
+</body>
+
+</html>

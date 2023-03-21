@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --dark: #333333;
+  --dark-gradient: linear-gradient(to right bottom, rgba(12, 64, 0, 0.214),rgba(59, 74, 63, 0.461));
+  --light: #aaaaaa;
+  --primary: #00ff00;
+  --secondary: #006000;
+  --tertiary: #132413;
+  --highlight: #ff00ee;
+  --sans: 'Poppins';
+  --robo: 'Share Tech Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--robo);
+}
+
+html,
+body {
+  background-color: var(--black);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7' viewBox='0 0 4 4'%3E%3Cpath fill='%2300ff4b' fill-opacity='0.39' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  height: 100%;
+  width: 100%;
+  min-width: 700px;
+  color: var(--primary);
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  margin-right: 3.5%;
+}
+
+h1 {
+  color: var(--primary);
+}
+
+p{
+  font-family: var(--sans);
+}
+
+textarea {
+  box-sizing: border-box;
+  color: var(--white);
+  border: 2px solid var(--highlight);
+  border-radius: 2rem;
+  background-color: rgb(0, 0, 0);
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 1rem;
+}
+
+textarea:focus{
+  outline: none;
+ }

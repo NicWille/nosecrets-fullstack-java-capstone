@@ -1,0 +1,44 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --dark: #333333;
+    --dark-gradient: linear-gradient(to right bottom, rgba(12, 64, 0, 0.214),rgba(59, 74, 63, 0.461));
+    --light: #aaaaaa;
+    --primary: #00ff00;
+    --secondary: #006000;
+    --tertiary: #132413;
+    --highlight: #ff00ee;
+    --sans: 'Poppins';
+    --robo: 'Share Tech Mono', monospace;
+  }
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+    margin-top: 4em;
+}
+
+table th {
+    text-align: center;
+    background-color: var(--tertiary);
+    border: 2px solid var(--primary);
+    color: rgb(177, 224, 161);
+    padding: 4px 30px 4px 8px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+table td {
+    border: 1px solid var(--primary);
+    padding: 4px;
+    color: var(--white);
+}
+
+table tr:nth-child(odd) td {
+    background-color: rgba(0, 0, 0, 0.489);
+}
+
+table tr:nth-child(even) td {
+    background-color: rgba(0, 67, 17, 0.533);
+}
