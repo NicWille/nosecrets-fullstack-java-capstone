@@ -19,7 +19,6 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<User> getUsers() {
-		
 		// get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
 		// create a query 
@@ -32,16 +31,14 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	// @Transactional
 	public void saveUser(User theUser) {
 		// get current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
-		// save/upate the customer 
+		// save/upate the user
 		currentSession.persist(theUser);
 	}
 
 	@Override
-	// @Transactional
 	public User getUser(int theId) {
 		// get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
@@ -49,8 +46,8 @@ public class UserDAOImpl implements UserDAO {
 		User theUser = currentSession.get(User.class, theId);
 		return theUser;
 	}
+
 	@Override
-    // @Transactional
     public void deleteUser(int id) {
         // get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);

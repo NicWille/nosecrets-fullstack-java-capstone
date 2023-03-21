@@ -19,11 +19,9 @@ import com.capstone.nosecrets.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 
-	// need to inject our customer service
+	// inject user service
 	@Autowired
 	private UserService userService;
-
-	
 
 	@GetMapping("/secret")
 	public String viewSecret() {
@@ -47,63 +45,50 @@ public class UserController {
 
 	@GetMapping("/list")
 	public String listUsers(Model theModel) {
-
-		// get customers from the service
+		// get users from service
 		List<User> theUsers = userService.getUsers();
-			
-		// add the customers to the model
+		// add the user to the model
 		theModel.addAttribute("users", theUsers);
-		
 		return "index";
 	}
 	
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
-		
 		// create model attribute to bind form data
 		User theUser = new User();
-		
 		theModel.addAttribute("user", theUser);
-		
 		return "register";
 	}
 	
 	@PostMapping("/saveUser")
 	public String saveCustomer(@ModelAttribute("user") User theUser) {
-		
-		// save the customer using our service
+		// save the user using service
 		userService.saveUser(theUser);	
-		
 		return "redirect:/user/list";
 	}
 
 	@PostMapping("/saveUserSecret/{id}")
 	public String saveCustomer(@ModelAttribute("secret") UserSecret secret, @PathVariable("id") int theId) {
-		
-		// save the customer using our service
+		// save the user secret using our service
 		userService.updateUser(theId, secret);
 		return "redirect:/user/list";
 	}
 	
 	@GetMapping("/showFormForUpdate/{id}")
 	public String showFormForUpdate(@PathVariable("id") int theId, Model theModel) {
-		
-		// get the customer from our service
+		// get the user from our service
 		User theUser = userService.getUser(theId);	
 		System.out.println(theUser.toString());
-		// set customer as a model attribute to pre-populate the form
+		// set user as a model attribute to pre-populate the form
 		theModel.addAttribute("user", theUser);
-		
 		// send over to our form		
 		return "secret";
 	}
 
 	@GetMapping("/deleteUser/{id}")
 	public String deleteCustomer(@PathVariable("id") int theId) {
-		//path variable
 		// delete the customer using our service
 		userService.deleteUser(theId);	
-		
 		return "redirect:/user/list";
 	}
 }

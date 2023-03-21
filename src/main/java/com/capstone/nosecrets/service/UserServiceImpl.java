@@ -17,10 +17,10 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDAO userDAO;
-	@Autowired
+	// @Autowired
 	// private UserRepository userRepository;
+
 	@Override
-	// @Transactional
 	public List<User> getUsers() {
 		// userRepository.findById(null)
 		return userDAO.getUsers();

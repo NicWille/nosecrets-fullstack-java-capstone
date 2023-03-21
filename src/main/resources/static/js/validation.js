@@ -4,7 +4,5 @@ function validateEmail() {
 
   if (!regex.test(email)) {
     alert("invalid email");
-    // window.location.assign("login.html");
-    // window.location.href = "www.google.com";
   }
 }
